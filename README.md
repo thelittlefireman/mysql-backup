@@ -54,6 +54,7 @@ __You should consider the [use of `--env-file=`](https://docs.docker.com/engine/
     * S3: If the value of `DB_DUMP_TARGET` is a URL of the format `s3://bucketname/path` then it will connect via awscli.
     * Multiple: If the value of `DB_DUMP_TARGET` contains multiple targets, the targets should be separated by a whitespace **and** the value surrounded by quotes, e.g. `"/db s3://bucketname/path"`.
 * `DB_DUMP_SAFECHARS`: The dump filename usually includes the character `:` in the date, to comply with RFC3339. Some systems and shells don't like that character. If this environment variable is set, it will replace all `:` with `-`.
+* `DB_DUMP_ARCHIVE_DAYS_TO_KEEP`: Number of days to keep backups
 * `AWS_ACCESS_KEY_ID`: AWS Key ID
 * `AWS_SECRET_ACCESS_KEY`: AWS Secret Access Key
 * `AWS_DEFAULT_REGION`: Region in which the bucket resides

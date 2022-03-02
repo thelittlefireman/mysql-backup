@@ -21,6 +21,7 @@ file_env "DB_DUMP_DEBUG"
 file_env "DB_DUMP_TARGET" "/backup"
 file_env "DB_DUMP_BY_SCHEMA"
 file_env "DB_DUMP_KEEP_PERMISSIONS" "true"
+file_env "DB_DUMP_ARCHIVE_DAYS_TO_KEEP"
 
 file_env "DB_RESTORE_TARGET"
 
@@ -230,6 +231,7 @@ else
       # Calculate the wait time
       waittime=$(($target_time - $current_time))
     fi
+    delete_old_backups
     sleep $waittime
     last_run=$(date +"%s")
   done

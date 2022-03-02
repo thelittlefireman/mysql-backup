@@ -549,4 +549,11 @@ function getepochas() {
                 echo "unknown OS $os" >&2
                 exit 1
         esac
+
+function delete_old_backups() {
+    if [[ -n "$DB_DUMP_ARCHIVE_DAYS_TO_KEEP" ]]; then
+      echo Removing Archives older than $DB_DUMP_ARCHIVE_DAYS_TO_KEEP days
+      [[ "$DB_DUMP_DEBUG" != "0" ]] && find $DB_DUMP_TARGET -mtime +$DB_DUMP_ARCHIVE_DAYS_TO_KEEP -exec echo "removing {}" \;
+      find $DB_DUMP_TARGET -mtime +$DB_DUMP_ARCHIVE_DAYS_TO_KEEP -exec rm {} \;
+    fi
 }
