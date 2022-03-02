@@ -4,7 +4,7 @@
 #
 # Environment variable reading function
 #
-# The function enables reading environment variable from file.
+# The function enables reading environment variable from file.
 #
 # usage: file_env VAR [DEFAULT]
 #    ie: file_env 'XYZ_DB_PASSWORD' 'example'
@@ -549,6 +549,7 @@ function getepochas() {
                 echo "unknown OS $os" >&2
                 exit 1
         esac
+}
 
 function delete_old_backups() {
     if [[ -n "$DB_DUMP_ARCHIVE_DAYS_TO_KEEP" ]]; then
